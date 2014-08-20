@@ -1,0 +1,69 @@
+.drop-ctn{
+    position: relative;
+    box-sizing: border-box;
+    // 拖拽过于快的时候 还是会来不及触发drop-ctn的dragenter
+    padding: 2em 10em;
+
+    .noimg-yet{
+        text-align: center;
+        margin: 0;
+        padding: 0 0 2em 0;
+        display: none;
+    }
+    
+
+    .drophere{
+        max-height: 0;
+        opacity: 0;
+        /* margin-top: 3em; */
+        overflow: hidden;
+        margin: 0;
+        text-align: center;
+        -webkit-transition: all 300ms ease;
+        transition: opacity 300ms ease;
+    }
+
+    &.noimg{
+        padding-top: 300px;
+        .noimg-yet{
+            display: block;
+        }
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            margin-left: -50px;
+            width: 100px;
+            height: 0;
+            border: none;
+            border-top: 3px dashed #ccc;
+        }
+        &:after{
+            transform: rotate(90deg);
+        }
+    }
+
+    &.dropable{
+        padding-top: 300px;
+        // 进入之后完全的遮蔽  
+        &:before{
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            background: #accded;
+        }
+        .drophere{
+            display: block;
+            opacity: 1;
+            padding: 0 0 2em 0;
+            max-height: 5em;
+            /* margin-top: 0; */
+            color: #accded;
+        }
+    }
+}

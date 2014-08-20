@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的图片查看器</title>
+    <link rel="stylesheet" type="text/css" href="layout/css/layout.css" />
+</head>
+<body class="drop-ctn noimg">
+    <h2 class="tip noimg-yet">拖拽图片文件到这里~</h2>
+    <h2 class="tip drophere">放手啊~</h2>
+    <!-- // <script type="text/javascript" src="lib/app.js"> -->
+    <script type="text/javascript" src="lib/vendor/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+        // 可以直接用require来引用js文件, 无论是否是nodejs模块
+        // 也就是说可以完全摒弃额外的模块加载器了
+        require('./lib/app.js');
+        
+        // test
+        // 同样,类似与nodejs中的js文件, 在文件最外层定义的变量也不会成为全局变量
+        try{
+            console.log(gg)
+        }
+        catch(err){
+            console.log(err)
+            console.log('在文件最外层定义的变量也不会成为全局变量')
+        }
+        console.log(ggg);
+    </script>
+</body>
+</html>
